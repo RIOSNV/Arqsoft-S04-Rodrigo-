@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CITAS_APP</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\MedicoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Controllers\MedicoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Medico\" />
+    <Folder Include="Views\Cita\" />
+    <Folder Include="Views\Paciente\" />
+  </ItemGroup>
+
+</Project>
