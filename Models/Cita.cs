@@ -2,12 +2,12 @@
 {
     public class Cita
     {
-        public string id;
-        public string PacienteId;
-        public string MedicoId;
-        DateOnly fecha;
-        TimeOnly Hora;
-        public string motivo;
-        public string estado;
+        public string id { get; set; }
+        public string PacienteId { get; set; }
+        public string MedicoId { get; set; }
+        DateOnly fecha { get; set; }
+        TimeOnly Hora { get; set; } 
+        public string motivo { get; set; } 
+        public string estado { get; set; }
     }
 }
