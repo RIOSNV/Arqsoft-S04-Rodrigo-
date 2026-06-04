@@ -15,10 +15,4 @@
     <None Include="Controllers\MedicoController.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Medico\" />
-    <Folder Include="Views\Cita\" />
-    <Folder Include="Views\Paciente\" />
-  </ItemGroup>
-
 </Project>

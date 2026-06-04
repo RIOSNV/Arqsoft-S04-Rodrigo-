@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CITAS_APP.Interfaces;
 using CITAS_APP.Models;
+using Microsoft.AspNetCore.Mvc;
 namespace CITAS_APP.Controllers { 
     public class PacienteController : Controller
     {
@@ -14,17 +15,9 @@ namespace CITAS_APP.Controllers {
             return paciente == null ? NotFound() : View(paciente);
         }
 
-        public IActionResult AgregarPaciente(int id)
-        {
-            var paciente = _repo.ObtenerPorId(id);
-            return paciente == null ? NotFound() : View(paciente);
-        }
-
-        //GET: Paciente/AgregarPaciente
         [HttpGet]
         public IActionResult AgregarPaciente() => View(new Paciente());
 
-        //POST: Paciente/AgregarPaciente
         [HttpPost]
         public IActionResult AgregarPaciente(Paciente paciente)
         {
@@ -32,6 +25,20 @@ namespace CITAS_APP.Controllers {
                 return View(paciente);
 
             _repo.Agregar(paciente);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Eliminar(int id)
+        {
+            var paciente = _repo.ObtenerPorId(id);
+            return paciente == null ? NotFound() : View(paciente);
+        }
+
+        [HttpPost, ActionName("Eliminar")]
+        public IActionResult EliminarConfirmado(int id)
+        {
+            _repo.Eliminar(id);
             return RedirectToAction("Index");
         }
     }

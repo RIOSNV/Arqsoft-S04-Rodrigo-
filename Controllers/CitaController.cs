@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CITAS_APP.Interfaces;
+using CITAS_APP.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CITAS_APP.Controllers
 {
-    public class CitaController
+    public class CitaController : Controller
     {
         private readonly ICitaRepository _citaRepo;
         private readonly IPacienteRepository _pacienteRepo;
