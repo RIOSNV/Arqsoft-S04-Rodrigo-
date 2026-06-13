@@ -1,38 +1,83 @@
 ﻿[
   {
-    "Id": 1,
-    "PacienteId": 1,
-    "MedicoId": 1,
-    "Fecha": "2026-06-01",
-    "Hora": "09:00",
-    "Motivo": "Consulta general",
-    "Estado": "Confirmada"
+    "id": 1,
+    "pacienteId": 1,
+    "medicoId": 1,
+    "fecha": "2026-06-05",
+    "hora": "09:00",
+    "estado": "Confirmada",
+    "motivo": "Revision cardiologica de rutina"
   },
   {
-    "Id": 2,
-    "PacienteId": 2,
-    "MedicoId": 2,
-    "Fecha": "2026-06-01",
-    "Hora": "10:00",
-    "Motivo": "Revisión de resultados",
-    "Estado": "Pendiente"
+    "id": 2,
+    "pacienteId": 2,
+    "medicoId": 2,
+    "fecha": "2026-06-05",
+    "hora": "10:30",
+    "estado": "Pendiente",
+    "motivo": "Consulta dermatologica"
   },
   {
-    "Id": 3,
-    "PacienteId": 3,
-    "MedicoId": 1,
-    "Fecha": "2026-06-03",
-    "Hora": "11:00",
-    "Motivo": "Primera consulta",
-    "Estado": "Pendiente"
+    "id": 3,
+    "pacienteId": 3,
+    "medicoId": 1,
+    "fecha": "2026-06-05",
+    "hora": "11:00",
+    "estado": "Confirmada",
+    "motivo": "Electrocardiograma"
   },
   {
-    "Id": 4,
-    "PacienteId": 4,
-    "MedicoId": 4,
-    "Fecha": "2026-06-03",
-    "Hora": "12:00",
-    "Motivo": "Cirugía",
-    "Estado": "Confirmada"
+    "id": 4,
+    "pacienteId": 4,
+    "medicoId": 3,
+    "fecha": "2026-06-06",
+    "hora": "08:30",
+    "estado": "Pendiente",
+    "motivo": "Dolor en rodilla izquierda"
+  },
+  {
+    "id": 5,
+    "pacienteId": 5,
+    "medicoId": 2,
+    "fecha": "2026-06-06",
+    "hora": "14:00",
+    "estado": "Confirmada",
+    "motivo": "Seguimiento tratamiento"
+  },
+  {
+    "id": 6,
+    "pacienteId": 6,
+    "medicoId": 4,
+    "fecha": "2026-06-07",
+    "hora": "09:30",
+    "estado": "Cancelada",
+    "motivo": "Vacunacion infantil"
+  },
+  {
+    "id": 7,
+    "pacienteId": 7,
+    "medicoId": 3,
+    "fecha": "2026-06-07",
+    "hora": "16:00",
+    "estado": "Confirmada",
+    "motivo": "Rehabilitacion de hombro"
+  },
+  {
+    "id": 8,
+    "pacienteId": 8,
+    "medicoId": 1,
+    "fecha": "2026-06-08",
+    "hora": "10:00",
+    "estado": "Pendiente",
+    "motivo": "Ecocardiograma"
+  },
+  {
+    "id": 9,
+    "pacienteId": 3,
+    "medicoId": 2,
+    "fecha": "2026-06-05",
+    "hora": "12:26",
+    "estado": "Pendiente",
+    "motivo": "dolor de panza "
   }
 ]

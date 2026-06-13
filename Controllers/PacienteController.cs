@@ -1,46 +1,69 @@
-﻿using CITAS_APP.Interfaces;
-using CITAS_APP.Models;
-using Microsoft.AspNetCore.Mvc;
-namespace CITAS_APP.Controllers { 
+﻿using Microsoft.AspNetCore.Mvc;
+using CitasApp.Data;
+using CitasApp.Models;
+
+namespace CitasApp.Controllers
+{
     public class PacienteController : Controller
     {
-        private readonly IPacienteRepository _repo;
-        public PacienteController(IPacienteRepository repo) { _repo = repo; }
+        private readonly JsonData _data;
 
-        public IActionResult Index() => View(_repo.ObtenerTodos());
-
-        public IActionResult Detalle(int id)
+        public PacienteController(JsonData data)
         {
-            var paciente = _repo.ObtenerPorId(id);
-            return paciente == null ? NotFound() : View(paciente);
+            _data = data;
         }
 
-        [HttpGet]
-        public IActionResult AgregarPaciente() => View(new Paciente());
+        public IActionResult Index()
+        {
+            var pacientes = _data.GetPacientes();
+            return View(pacientes);
+        }
+
+        public IActionResult Create()
+        {
+            return View(new Paciente());
+        }
 
         [HttpPost]
-        public IActionResult AgregarPaciente(Paciente paciente)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Paciente paciente)
         {
-            if (!ModelState.IsValid)
-                return View(paciente);
-
-            _repo.Agregar(paciente);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _data.AddPaciente(paciente);
+                TempData["Mensaje"] = "Paciente registrado exitosamente";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(paciente);
         }
 
-        [HttpGet]
-        public IActionResult Eliminar(int id)
+        public IActionResult Edit(int id)
         {
-            var paciente = _repo.ObtenerPorId(id);
-            return paciente == null ? NotFound() : View(paciente);
+            var paciente = _data.GetPacienteById(id);
+            if (paciente == null) return NotFound();
+            return View(paciente);
         }
 
-        [HttpPost, ActionName("Eliminar")]
-        public IActionResult EliminarConfirmado(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Paciente paciente)
         {
-            _repo.Eliminar(id);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _data.UpdatePaciente(paciente);
+                TempData["Mensaje"] = "Paciente actualizado exitosamente";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(paciente);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            _data.DeletePaciente(id);
+            TempData["Mensaje"] = "Paciente eliminado exitosamente";
+            return RedirectToAction(nameof(Index));
         }
     }
-
 }

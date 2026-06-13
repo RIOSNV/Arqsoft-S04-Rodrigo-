@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Data\Admins,json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Controllers\MedicoController.cs" />
   </ItemGroup>
 
